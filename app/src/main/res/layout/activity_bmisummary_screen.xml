@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BMISummaryScreen">
+
+    <ScrollView
+        android:id="@+id/bmi_scr"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:gravity="center"
+                android:text="Cowin BMI"
+                android:textColor="@color/text_color"
+                android:textSize="35dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="Results"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/btn_color"
+                    android:textSize="25dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="Personal Information"/>
+
+
+                <LinearLayout
+                    android:layout_marginTop="60dp"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent">
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="Name"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="Age"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="Gender"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="Phone"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/final_name_tv"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="-"
+                            android:textColor="@color/text_color"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/final_age_tv"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="-"
+                            android:textColor="@color/text_color"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/final_gender_tv"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="-"
+                            android:textColor="@color/text_color"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/final_phone_tv"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="-"
+                            android:textColor="@color/text_color"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/btn_color"
+                    android:textSize="25dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="BMI Summary"/>
+
+
+                <LinearLayout
+                    android:layout_marginTop="40dp"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent">
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="Height"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="Weight"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="BMI"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="Bodyfat"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="Total Body Water"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="BMR"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="SPO2"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="Heart-rate"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="20dp"
+                            android:gravity="center|left"
+                            android:text="Blood Pressure"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/final_height_tv"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="-"
+                            android:textColor="@color/text_color"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/final_weight_tv"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="-"
+                            android:textColor="@color/text_color"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/final_bmi_tv"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="-"
+                            android:textColor="@color/text_color"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/final_bodyfat_tv"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="-"
+                            android:textColor="@color/text_color"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/final_totalbodywater_tv"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="-"
+                            android:textColor="@color/text_color"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/final_bmr_tv"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="-"
+                            android:textColor="@color/text_color"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/final_spo2_tv"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="NA"
+                            android:textColor="@color/text_color"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/final_heartrate_tv"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="NA"
+                            android:textColor="@color/text_color"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/final_bloodpressure_tv"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:layout_marginLeft="20dp"
+                            android:text="NA"
+                            android:textColor="@color/text_color"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginTop="350dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="Nutrition Status"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/final_nutration_tv"
+                    android:gravity="center"
+                    android:layout_marginTop="390dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Nutrtion Status"
+                    android:textColor="@color/text_color"/>
+                <TextView
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:layout_marginTop="440dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="Recommendation"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/final_recommandation_tv"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:layout_marginTop="480dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Recommendation"
+                    android:textColor="@color/text_color"/>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
