@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -36,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
     private Handler handler;
     private Runnable dataCheckRunnable;
 
-    ImageView setting_img_kt;
+    ImageView setting_img_kt, bt_status_kt;
     EditText editTextDatePicker_kt,name_box_kt, phone_box_kt;
-     Calendar calendar;
+    Calendar calendar;
     AlertDialog dialog;
     Button bmi_activity_kt;
 
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setting_img_kt = findViewById(R.id.setting_img);
+        bt_status_kt = findViewById(R.id.bt_status);
         editTextDatePicker_kt = findViewById(R.id.editTextDatePicker);
         spinner_kt = findViewById(R.id.spinner);
         bmi_activity_kt = findViewById(R.id.bmi_activity);
@@ -133,6 +135,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        bt_status_kt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, DeviceListActivity.class);
+                startActivity(intent);
+            }
+        });
+
         bmi_activity_kt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,8 +160,11 @@ public class MainActivity extends AppCompatActivity {
                 }else if(gender.equalsIgnoreCase("Please Select Gender")){
                     Toast.makeText(getApplicationContext(), "Please Select Your Gender", Toast.LENGTH_LONG).show();
                 }else if(macid.equalsIgnoreCase("No Data")){
-                    Intent intent = new Intent(MainActivity.this, DeviceListActivity.class);
-                    startActivity(intent);
+                    // Inside an Activity or Fragment
+                    Toast.makeText(getApplicationContext(), "Please pair Device First", Toast.LENGTH_SHORT).show();
+
+//                    Intent intent = new Intent(MainActivity.this, DeviceListActivity.class);
+//                    startActivity(intent);
                 }else{
                     Intent intent = new Intent(MainActivity.this,BluetoothActivity.class);
                     intent.putExtra("name", name);
@@ -209,8 +222,12 @@ public class MainActivity extends AppCompatActivity {
     private void readAndDisplaySharedPreferencesData() {
         SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
             macid = preferences.getString(PREF_MAC_ID, null);
-        if (macid != "No Data") {
-            dialog.dismiss();
-        }
+            Log.e("6666666666666666",macid);
+            if(macid.equalsIgnoreCase("No Data")){
+                bt_status_kt.setImageResource(R.drawable.bt_disct);
+            }else{
+                bt_status_kt.setImageResource(R.drawable.bt_ct);
+            }
+
     }
 }

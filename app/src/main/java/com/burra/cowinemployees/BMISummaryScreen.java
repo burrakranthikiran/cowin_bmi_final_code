@@ -221,7 +221,7 @@ public class BMISummaryScreen extends AppCompatActivity {
                     jsonBody.put("under_weight", df.format(over_weight));
 
                     // Define the URL of the API endpoint
-                    String url = "https://verified-ready-starfish.ngrok-free.app/api/bmi_data_insert";
+                    String url = "https://cowinserver.cowinbmi.io/api/bmi_data_insert";
 
                     // Create a JsonObjectRequest with the POST method and JSON body
                     JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(

@@ -5,11 +5,13 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -39,13 +41,16 @@ public class BluetoothActivity extends AppCompatActivity {
     private InputStream inputStream;
     private final UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
-    TextView bmi_value_bt, weight_value_bt, height_value_bt, text_data_bt;
+    TextView bmi_value_bt, weight_value_bt, height_value_bt;
+    LinearLayout text_data_bt, device_status_bt, device_status_soon_bt;
 
     EditText spo2_bt, heart_rate_bt, blood_pressure_bt;
 
-    Button calculate_activity_ct;
+    Button calculate_activity_ct, device_status_cnt_admin_ct, device_status_soon_cnt_admin_ct,device_status_soon_skip_ct;
 
     ScrollView bmi_scr_ct;
+
+    int deviceSubStatus;
 
     @SuppressLint({"MissingPermission", "MissingInflatedId"})
     @Override
@@ -57,6 +62,53 @@ public class BluetoothActivity extends AppCompatActivity {
         gender = intent.getStringExtra("gender");
         phonenumber = intent.getStringExtra("phonenumber");
         macid = intent.getStringExtra("macid");
+        setContentView(R.layout.activity_bluetooth);
+        bmi_value_bt = findViewById(R.id.bmi_value);
+        weight_value_bt = findViewById(R.id.weight_value);
+        height_value_bt = findViewById(R.id.height_value);
+        calculate_activity_ct = findViewById(R.id.calculate_activity);
+        bmi_scr_ct = findViewById(R.id.bmi_scr);
+        text_data_bt = findViewById(R.id.text_data);
+        spo2_bt = findViewById(R.id.spo2_et);
+        heart_rate_bt = findViewById(R.id.heart_rate_et);
+        blood_pressure_bt = findViewById(R.id.blood_pressure_et);
+        device_status_bt = findViewById(R.id.device_status);
+        device_status_soon_bt = findViewById(R.id.device_status_soon);
+        device_status_cnt_admin_ct = findViewById(R.id.device_status_cnt_admin);
+        device_status_soon_cnt_admin_ct = findViewById(R.id.device_status_soon_cnt_admin);
+        device_status_soon_skip_ct = findViewById(R.id.device_status_soon_skip);
+
+
+        device_status_cnt_admin_ct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=919398772387&text=Hello Team")));
+            }
+        });
+        device_status_soon_cnt_admin_ct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=917702597518&text=Hello Team")));
+            }
+        });
+
+        device_status_soon_skip_ct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                device_status_bt.setVisibility(View.GONE);
+                device_status_soon_bt.setVisibility(View.GONE);
+                text_data_bt.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+
+
+
+        /**
+         * Server SubDescription Status
+         */
+
         try {
             JSONObject jsonBody = new JSONObject();
 
@@ -64,7 +116,7 @@ public class BluetoothActivity extends AppCompatActivity {
 
 
             // Define the URL of the API endpoint
-            String url = "https://verified-ready-starfish.ngrok-free.app/api/bmi_status";
+            String url = "https://cowinserver.cowinbmi.io/api/bmi_status";
 
             // Create a JsonObjectRequest with the POST method and JSON body
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
@@ -74,8 +126,42 @@ public class BluetoothActivity extends AppCompatActivity {
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            // Handle the response from the server
-                            Log.d("Response", response.toString());
+                            try {
+                                // Assuming 'response' is a String containing your JSON response
+                                JSONObject jsonResponse = new JSONObject(String.valueOf(response));
+
+                                // Extract the device_sub_status value
+                                deviceSubStatus = jsonResponse.getInt("device_sub_status");
+                                Log.d("9999999999999999999", String.valueOf(deviceSubStatus));
+
+                                if(deviceSubStatus == 0){
+                                    device_status_bt.setVisibility(View.VISIBLE);
+                                    device_status_soon_bt.setVisibility(View.GONE);
+                                    text_data_bt.setVisibility(View.GONE);
+                                    bmi_scr_ct.setVisibility(View.GONE);
+                                    calculate_activity_ct.setVisibility(View.GONE);
+                                }else if (deviceSubStatus >= 1 && deviceSubStatus <= 25){
+                                    device_status_bt.setVisibility(View.GONE);
+                                    device_status_soon_bt.setVisibility(View.VISIBLE);
+                                    text_data_bt.setVisibility(View.GONE);
+                                    bmi_scr_ct.setVisibility(View.GONE);
+                                    calculate_activity_ct.setVisibility(View.GONE);
+                                } else{
+                                    device_status_bt.setVisibility(View.GONE);
+                                    device_status_soon_bt.setVisibility(View.GONE);
+                                    text_data_bt.setVisibility(View.VISIBLE);
+                                    bmi_scr_ct.setVisibility(View.VISIBLE);
+                                    calculate_activity_ct.setVisibility(View.VISIBLE);
+                                }
+
+
+                                // Now you can use the 'deviceSubStatus' variable as needed
+                                Log.d("Device Sub Status", String.valueOf(deviceSubStatus));
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                // Handle any JSON parsing errors here
+                            }
                         }
                     },
                     new Response.ErrorListener() {
@@ -97,25 +183,6 @@ public class BluetoothActivity extends AppCompatActivity {
         }
 
 
-
-
-
-
-
-
-
-
-
-        setContentView(R.layout.activity_bluetooth);
-        bmi_value_bt = findViewById(R.id.bmi_value);
-        weight_value_bt = findViewById(R.id.weight_value);
-        height_value_bt = findViewById(R.id.height_value);
-        calculate_activity_ct = findViewById(R.id.calculate_activity);
-        bmi_scr_ct = findViewById(R.id.bmi_scr);
-        text_data_bt = findViewById(R.id.text_data);
-        spo2_bt = findViewById(R.id.spo2_et);
-        heart_rate_bt = findViewById(R.id.heart_rate_et);
-        blood_pressure_bt = findViewById(R.id.blood_pressure_et);
         String commandsText = "$51,1124,128,#\\r\\n";
         String[] commands = commandsText.split("\n");
         connectToDevice(commands);
@@ -207,11 +274,19 @@ public class BluetoothActivity extends AppCompatActivity {
                                             bmi_value_bt.setText(parts[6]+"Cal/per day");
                                             height_value_bt.setText(parts[4]+"Cm");
                                             weight_value_bt.setText(parts[5]+"KG");
-                                            bmi_scr_ct.setVisibility(View.VISIBLE);
-                                            calculate_activity_ct.setVisibility(View.VISIBLE);
-                                            text_data_bt.setVisibility(View.GONE);
-                                        } else {
-
+                                            if(deviceSubStatus == 0){
+                                                device_status_bt.setVisibility(View.VISIBLE);
+                                                device_status_soon_bt.setVisibility(View.GONE);
+                                                text_data_bt.setVisibility(View.GONE);
+                                                bmi_scr_ct.setVisibility(View.GONE);
+                                                calculate_activity_ct.setVisibility(View.GONE);
+                                            }else{
+                                                device_status_bt.setVisibility(View.GONE);
+                                                device_status_soon_bt.setVisibility(View.GONE);
+                                                text_data_bt.setVisibility(View.GONE);
+                                                bmi_scr_ct.setVisibility(View.VISIBLE);
+                                                calculate_activity_ct.setVisibility(View.VISIBLE);
+                                            }
                                         }
 
 
