@@ -63,7 +63,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
                 android:gravity="center"
-                android:text="Your Height and Weight"
+                android:text="Your Health Profile"
                 android:textColor="@color/black"
                 android:textSize="25dp"
                 android:textStyle="bold" />
@@ -246,43 +246,216 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
                             android:textStyle="bold"
-                            android:textSize="20dp"
-                            android:text="Optional"/>
+                            android:textSize="18dp"
+                            android:text="Enter Details"/>
 
-                        <EditText
-                            android:id="@+id/spo2_et"
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:layout_width="fill_parent">
+
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent"
+                                android:layout_width="0dp">
+                                <TextView
+                                    android:paddingLeft="10dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="left"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:hint="Spo2"
+                                    android:inputType="number"
+                                    android:maxLines="1"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent"
+                                android:layout_width="0dp"
+                                android:gravity="right"
+                                android:layout_gravity="center|right">
+
+                                <TextView
+                                    android:paddingRight="10dp"
+                                    android:paddingLeft="10dp"
+                                    android:background="@color/field_color"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:id="@+id/spo2_et"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:hint="0%"
+                                    android:inputType="number"
+                                    android:maxLines="1"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_color"
+                                    android:textSize="20dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+
+
+                        <SeekBar
+                            android:paddingLeft="16dp"
+                            android:min="85"
+                            android:max="100"
+                            android:progress="90"
+                            android:id="@+id/spo2_seek_bar"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="wrap_content"
+                            android:progressDrawable="@drawable/seekbar_style"
+                            android:thumb="@drawable/custom_thumb"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:layout_width="fill_parent">
+
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent"
+                                android:layout_width="0dp">
+                                <TextView
+                                    android:paddingLeft="10dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="left"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:hint="BPM"
+                                    android:inputType="number"
+                                    android:maxLines="1"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent"
+                                android:layout_width="0dp"
+                                android:gravity="right"
+                                android:layout_gravity="center|right">
+
+                                <TextView
+                                    android:paddingRight="10dp"
+                                    android:paddingLeft="10dp"
+                                    android:background="@color/field_color"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:id="@+id/heart_rate_et"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:hint="0 bpm"
+                                    android:inputType="number"
+                                    android:maxLines="1"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_color"
+                                    android:textSize="20dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+
+                        <SeekBar
+                            android:paddingLeft="16dp"
+                            android:min="40"
+                            android:max="250"
+                            android:progress="60"
+                            android:id="@+id/heart_rate_seek_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:progressDrawable="@drawable/seekbar_style"
+                            android:thumb="@drawable/custom_thumb"/>
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_margin="10dp"
-                            android:background="@drawable/border_background"
-                            android:hint="Please Enter SPO2"
+                            android:hint="Please Enter Blood Pressure value"
                             android:inputType="number"
                             android:maxLines="1"
                             android:textColor="@color/black"
                             android:textSize="20dp" />
 
-                        <EditText
-                            android:id="@+id/heart_rate_et"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:background="@drawable/border_background"
-                            android:hint="Please Enter Heart-rate"
-                            android:textColor="@color/black"
-                            android:maxLines="1"
-                            android:textSize="20dp"
-                            android:inputType="number"
-                            android:layout_margin="10dp"/>
-                        <EditText
-                            android:id="@+id/blood_pressure_et"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:background="@drawable/border_background"
-                            android:hint="Please Enter Blood Pressure"
-                            android:textColor="@color/black"
-                            android:maxLines="1"
-                            android:textSize="20dp"
-                            android:inputType="number"
-                            android:layout_margin="10dp"/>
+
+                        <LinearLayout
+                            android:layout_marginTop="0dp"
+                            android:orientation="horizontal"
+                            android:layout_height="fill_parent"
+                            android:layout_width="fill_parent">
+
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent"
+                                android:layout_width="0dp"
+                                android:orientation="horizontal"
+                                android:padding="5dp">
+
+                                <EditText
+                                    android:maxLength="3"
+                                    android:id="@+id/sys_value"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/border_background"
+                                    android:hint="Enter your SYS"
+                                    android:inputType="number"
+                                    android:maxLines="1"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_height="fill_parent"
+                                android:layout_width="0dp"
+                                android:padding="5dp">
+
+                                <EditText
+                                    android:maxLength="3"
+                                    android:id="@+id/dis_value"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/border_background"
+                                    android:hint="Enter your DIA"
+                                    android:inputType="number"
+                                    android:textColor="@color/black"
+                                    android:maxLines="1"
+                                    android:textSize="20dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
 
                     </LinearLayout>
 
@@ -326,6 +499,43 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/standbmi"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/device_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_margin="16dp"
+            android:layout_width="300dp"
+            android:layout_height="250dp"
+            android:src="@drawable/cowin_logo"/>
+
+        <TextView
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="Please Connect Device Try Again or Check Device Will be offline"/>
+        <Button
+            android:id="@+id/back_icon_new"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back to Home Screen"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:background="@color/teal_700"
+            android:textColor="@color/white"
+            android:textSize="20dp"/>
     </LinearLayout>
 
     <LinearLayout

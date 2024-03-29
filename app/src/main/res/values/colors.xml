@@ -16,6 +16,14 @@
     <color name="offWhite">#efefef</color>
     <color name="text_color">#FA8613</color>
     <color name="btn_color">#091E3E</color>
+    <color name="field_color">#D9D9D9</color>
+    <color name="log_color">#2196F3</color>
 
+    <color name="red_color">#F80316</color>
+    <color name="red_color_bc">#F3BFC3</color>
+    <color name="green_color">#00570c</color>
+    <color name="green_color_bc">#d2f7d7</color>
+    <color name="colorDekraOrange">#80BD88</color>
+    <color name="colorDekraYellow">#80BD88</color>
 
 </resources>

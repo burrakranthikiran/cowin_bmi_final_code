@@ -15,48 +15,94 @@
         android:background="@color/header_color"
         tools:ignore="MissingConstraints"
         android:orientation="horizontal">
+
         <LinearLayout
-            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_gravity="left"
+            android:layout_weight="1"
             android:gravity="left"
             android:paddingLeft="0dp"
-            android:layout_width="0dp">
+            android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:layout_margin="5dp"
                 android:layout_width="45dp"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 app:cardBackgroundColor="@android:color/white"
                 app:cardCornerRadius="8dp">
 
                 <ImageView
-                    android:padding="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/cowin_logo"/>
+                    android:padding="8dp"
+                    android:src="@drawable/cowin_logo" />
 
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:gravity="center|left"
-                android:layout_width="match_parent"
+                android:layout_width="90dp"
                 android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:text="Home"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:textStyle="bold"
-                android:text="Home Screen"/>
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_height="fill_parent"
+                    android:layout_width="fill_parent">
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_height="fill_parent"
+                        android:layout_width="match_parent">
+                        <TextView
+                            android:id="@+id/device_box"
+                            android:textColor="@color/black"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Device Name"
+                            android:textStyle="bold"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_height="fill_parent"
+                        android:layout_width="match_parent">
+                        <TextView
+                            android:id="@+id/mac_box"
+                            android:textColor="@color/black"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Device Mac ID" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:layout_height="fill_parent"
             android:layout_gravity="right"
             android:gravity="right"
             android:paddingRight="8dp"
-            android:layout_width="0dp">
+            android:layout_width="0dp"
+            android:orientation="horizontal">
+
+
             <androidx.cardview.widget.CardView
+                android:id="@+id/bc_card_icon"
                 android:layout_margin="5dp"
                 android:layout_width="45dp"
                 android:layout_height="match_parent"
@@ -69,6 +115,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/bt_ct"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:visibility="visible"
+                android:layout_margin="5dp"
+                android:id="@+id/card_view_update"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="8dp">
+
+                <ImageView
+                    android:id="@+id/setting_update"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/setting_icon_wt"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -103,30 +167,40 @@
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
             android:orientation="vertical"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             tools:layout_editor_absoluteX="20dp">
 
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="40dp"
+                android:textColor="@color/log_color"
+                android:textStyle="bold"
+                android:text="CoWin Health ATM Machine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
             <ImageView
-                android:visibility="gone"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:src="@drawable/cowin_logo" />
+                android:visibility="visible"
+                android:layout_marginBottom="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:src="@drawable/cowin_main_logo" />
+
 
 
             <EditText
-                android:text="Burra Kranthi"
+
                 android:id="@+id/name_box"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -139,7 +213,7 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:text="7702597518"
+
                 android:id="@+id/phone_box"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -152,9 +226,23 @@
                 android:maxLines="1"
                 android:textSize="20dp" />
 
+            <EditText
+
+                android:id="@+id/age_box"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/border_background"
+                android:hint="Enter your Age"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:textSize="20dp" />
 
             <EditText
-                android:text="11/17/1997"
+                android:visibility="gone"
                 android:id="@+id/editTextDatePicker"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -164,19 +252,50 @@
                 android:clickable="true"
                 android:drawableLeft="@drawable/calander"
                 android:focusable="false"
-                android:hint="Select a date"
+                android:hint="Please Select Date of Birth"
                 android:maxLines="1"
                 android:textSize="20dp" />
 
-            <Spinner
-                android:id="@+id/spinner"
+            <RadioGroup
+                android:orientation="horizontal"
+                android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/border_background"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="5dp"
+                android:background="@drawable/border_background">
+
+                <TextView
+                    android:text="Gender"
+                    android:textColor="@color/black"
+                    android:maxLines="1"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+                <RadioButton
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/radioButtonOption1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Male"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:maxLines="1"/>
+
+                <RadioButton
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/radioButtonOption2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Female"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:maxLines="1"/>
+            </RadioGroup>
+
+
+
 
 
             <Button

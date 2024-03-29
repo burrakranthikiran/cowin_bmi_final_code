@@ -14,7 +14,6 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="70dp"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
@@ -25,7 +24,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:gravity="center"
                 android:text="Cowin BMI"
                 android:textColor="@color/text_color"
@@ -33,18 +32,9 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/countdownTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:text="00:00:00"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"/>
-
-            <TextView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="30dp"
                 android:gravity="center"
                 android:text="Results"
                 android:textColor="@color/black"
@@ -86,8 +76,8 @@
                             android:orientation="vertical"
                             android:paddingLeft="20dp" >
                             <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginTop="0dp"
                                 android:textColor="#00570c"
                                 android:textSize="12dp"
@@ -137,8 +127,8 @@
                             android:orientation="vertical"
                             android:paddingLeft="20dp" >
                             <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginTop="0dp"
                                 android:textColor="#00570c"
                                 android:textSize="12dp"
@@ -197,7 +187,6 @@
                             android:orientation="vertical"
                             android:paddingLeft="20dp" >
                             <TextView
-                                android:id="@+id/bmi_status_color"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="0dp"
@@ -249,7 +238,6 @@
                             android:orientation="vertical"
                             android:paddingLeft="20dp" >
                             <TextView
-                                android:visibility="gone"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="0dp"
@@ -310,7 +298,6 @@
                             android:orientation="vertical"
                             android:paddingLeft="20dp" >
                             <TextView
-                                android:visibility="gone"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="0dp"
@@ -362,8 +349,6 @@
                             android:orientation="vertical"
                             android:paddingLeft="20dp" >
                             <TextView
-
-                                android:visibility="gone"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="0dp"
@@ -397,8 +382,7 @@
                 </LinearLayout>
 
             </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
+            <LinearLayout android:orientation="horizontal"
                 android:layout_height="fill_parent"
                 android:layout_width="fill_parent"
                 android:layout_gravity="center"
@@ -425,7 +409,6 @@
                             android:orientation="vertical"
                             android:paddingLeft="20dp" >
                             <TextView
-                                android:visibility="gone"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="0dp"
@@ -477,7 +460,6 @@
                             android:orientation="vertical"
                             android:paddingLeft="20dp" >
                             <TextView
-                                android:visibility="gone"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="0dp"
@@ -511,15 +493,13 @@
                 </LinearLayout>
 
             </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
+            <LinearLayout android:orientation="horizontal"
                 android:layout_height="fill_parent"
                 android:layout_width="fill_parent"
                 android:layout_gravity="center"
                 android:gravity="center">
 
                 <LinearLayout
-                    android:visibility="visible"
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:layout_weight="1"
@@ -540,7 +520,6 @@
                             android:orientation="vertical"
                             android:paddingLeft="20dp" >
                             <TextView
-                                android:visibility="gone"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="0dp"
@@ -593,18 +572,5 @@
 
 
     </ScrollView>
-
-    <Button
-        android:id="@+id/save_share"
-        android:layout_marginBottom="10dp"
-        android:textSize="25dp"
-        android:textColor="@color/white"
-        android:text="Save and Share"
-        android:background="@color/btn_color"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
